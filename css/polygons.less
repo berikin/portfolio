@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* CSS Document */
+
+	
+	
+#asir, #esi, #daw
+	{
+		position:absolute !important; /*Posición absoluta dentro de su caja para poder superponer capas*/
+		width:310px;		
+	}
+#asir
+	{
+		z-index: 3;
+	}	
+#esi
+	{
+		z-index: 3;
+		margin-left: 590px;
+	}
+#daw
+	{
+		margin-top: 310px;
+		z-index: 1;
+	}		
+#asirtext, #esitext, #dawtext
+	{
+		margin-top:40px;
+		padding:10px 10px 10px 10px;
+		color:#306;
+		background-color:#D8D6ED;
+		font-size:1.5em;
+		text-align:justify;
+		position:absolute; /*Posición absoluta dentro de su caja para poder superponer capas*/
+		width:500px;
+		display:none; /*La capa está oculta hasta que ponemos el ratón en su svg correspondiente*/
+		border-style:solid;
+		border-width:5px 5px 5px;
+		border-color: #E6E6E6;
+		border-radius:10px;
+		opacity:0.9; /*Para que se vea que debajo siguen los polígonos*/
+	}
+	
+#asirtext
+	{
+		margin-left:400px; /*Margen para que la capa aparezca donde queremos, ya que al ir absoluta float no funciona (400 de margen + 500 este bloque = 900 del total)*/
+		z-index:4; /*Damos prioridad a esta capa sobre la capa de svg de esi*/
+		margin-top:60px;
+	}
+#esitext
+	{
+		z-index:4; /*Damos prioridad a esta capa sobre la capa de svg de asir*/
+	}
+#dawtext
+	{
+		margin-top:400px;
+		margin-left:400px; /*Margen para que la capa aparezca donde queremos, ya que al ir absoluta float no funciona (400 de margen + 500 este bloque = 900 del total)*/
+		z-index:2; /*Damos prioridad a esta capa sobre la capa de svg de dam*/
+	}

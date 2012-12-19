@@ -1,0 +1,368 @@
+@charset "UTF-8";
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Basic Stylesheet for http://www.jimenezfrontend.es
+//version 0.1
+//Last Updated: 18/12/2012
+//Author: José Antonio Yáñez Jiménez -- http://www.jimenezfrontend.es
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Font import
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@font-face {
+  font-family: 'Droid Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans Mono'), local('DroidSansMono'), url(../fonts/droidsans.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Aclonica';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aclonica'), local('Aclonica-Regular'), url(../fonts/aclonica.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Amaranth';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Amaranth'), url(../fonts/amaranth.woff) format('woff');
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Colors in website
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@purple-bright: #BCB1ED; //Morado claro, tono brillante
+@purple-mid: #CC99FF; //Morado medio, tirando a fucsia
+@purple-dark: #30233F; //Morado oscuro
+@purple-border: #372849; //Morado oscuro, para titulos
+@purple-darker: #200C32; //Morado más oscuro, para titulos
+@purple-pastel: #D8D6ED; //Morado claro, tono pastel
+@purple-form: rgba(48,35,63,0.9);
+@grey-bright: #E6E6E6;
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Importing reset and general style
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+@import url('reset.less');
+body
+	{
+	background-color:@purple-pastel;
+	font-family: 'Amaranth', sans-serif;
+	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Various effects
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------
+//------------------------------------------
+// Less Mixins
+//------------------------------------------
+//------------------------------------------
+.stroke-text(@color:@grey-bright)
+	{
+	text-shadow: -1px 0 @color, 0 1px @color, 1px 0 @color, 0 -1px @color;
+	}
+
+.semi-stroke-text(@color:@purple-border)
+	{
+	text-shadow: 0px 2px 1px #372849;
+	}
+.title-text()
+	{
+	font-family: 'Aclonica', serif;
+	}
+.code-text()
+	{
+	font-family: 'Droid Sans Mono', sans-serif;
+	}
+.body-text()
+	{
+	font-family: 'Droid Sans Mono', sans-serif;
+	}
+
+.transition(@argument:background-color,@time:500ms)
+	{
+	-webkit-transition: @argument @time linear;
+	-moz-transition: @argument @time linear;
+	-o-transition: @argument @time linear;
+	-ms-transition: @argument @time linear;
+	transition: @argument @time linear;	
+	}
+//------------------------------------------
+//------------------------------------------
+// Aditional classes
+//------------------------------------------
+//------------------------------------------
+.headers
+	{
+	padding-top:150px;
+	}
+
+.darktext
+	{
+	color:@purple-bright !important;
+	.stroke-text(@purple-darker) !important;
+	}	
+
+.invisible
+	{
+	display:none;	
+	}
+
+//Center and adjust boxes
+.centerbox 
+	{
+	width:900px;
+	margin:0 auto 0 auto;
+	}
+
+.bright
+	{
+	background-color:@purple-pastel;
+	}
+.dark
+	{
+	background-color:@purple-dark;
+	}
+
+::-moz-selection
+	{
+		background:@purple-darker;
+		color:@purple-mid;
+	}
+::selection 
+	{
+		background:@purple-darker;
+		color:@purple-mid;
+	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Principal blocks
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+article
+	{
+	width: 100%;
+	min-height:600px;
+	margin: 0 auto 0 auto;
+	display:block;
+	}
+nav
+	{
+	position:absolute;
+	top:600px;
+	width:100%;
+	background-image:url('../img/nav-back.png');
+	background-repeat:repeat-x;
+	height:100px;
+	text-align:center;
+	display:block;
+	background-color:@purple-dark;
+	border-width:5px;
+	border-color:@grey-bright;
+	border-bottom-style:none;
+	z-index:100 !important;
+	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Titles
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+h1
+	{
+	padding-top:200px;
+	font-size:4em;
+	color:@purple-darker;
+	letter-spacing: 5px;
+	.title-text;
+	.semi-stroke-text;
+	}
+h2
+	{
+	padding-top:40px;
+	font-size:2em;
+	color:@purple-darker;
+	letter-spacing: 5px;
+	.code-text;
+	.semi-stroke-text;
+	}
+
+h3
+	{
+	padding-top:30px;
+	font-size:3em;
+	color:@purple-dark;
+	letter-spacing: 5px;
+	.title-text;
+	.stroke-text;
+	}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Articles and divs
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------
+//------------------------------------------
+//    gap for high resolution monitors
+//					&
+// curtain to hide the contents at a glance
+//------------------------------------------
+//------------------------------------------
+#spacing
+	{
+		position:absolute;
+		height:900px;
+		top:600px;
+		width:100%;
+		display: block;
+	}
+#curtain
+	{
+		position:absolute;
+		height:5600px;
+		width:100%;
+		background-color:@purple-dark;
+		background-image:url('../img/presentation-back.png');
+		background-repeat:repeat;
+		z-index:50;
+	}
+//------------------------------------------
+//------------------------------------------
+// introduction paragraph
+//------------------------------------------
+//------------------------------------------
+#introduction
+	{
+		text-align:justify;
+		padding-top:60px;
+		font-size:1.8em;
+		color:@grey-bright;
+		text-shadow: 0px 1px 1px #FFFFFF;
+	}
+//------------------------------------------
+//------------------------------------------
+// article with the Home view
+//------------------------------------------
+//------------------------------------------	
+#principal
+	{
+		background-color:@purple-dark;
+		background-image:url('../img/presentation-back.png');
+		background-repeat:repeat-x;
+		text-align:center;
+	}
+//------------------------------------------
+//------------------------------------------
+// article with the web skills view
+//------------------------------------------
+//------------------------------------------
+#webskills
+	{
+		background-color:@purple-pastel;
+		position:absolute;
+		min-height:1400px !important;
+		top:1500px; /*600px de article principal, 100px de nav, 900px de spacing*/
+	}
+
+//------------------------------------------
+//------------------------------------------
+// article with the education view
+//------------------------------------------
+//------------------------------------------
+#education
+	{
+		background-color:#31213F;
+		position:absolute;
+		min-height:1400px !important;
+		top:3100px; /*600px de article principal, 100px de nav, 1000px de spacing 1400px de work*/
+	}
+
+//------------------------------------------
+//------------------------------------------
+// article with the contact view
+//------------------------------------------
+//------------------------------------------
+#contact
+	{
+		background-color:@purple-pastel;
+		position:absolute;
+		min-height:1400px !important;
+		top:4500px; /*600px de article principal, 100px de nav, 1000px de spacing 1400px de work, 1400px de education*/
+	}
+	
+//------------------------------------------
+//------------------------------------------
+// navigator links
+//------------------------------------------
+//------------------------------------------
+.headlink
+	{
+		font-family: 'Aclonica', serif;
+		font-size:2em;
+		color:@grey-bright;
+		font-weight:bolder;
+		margin-left:20px;
+	}
+
+.headlink:hover
+	{
+		font-family: 'Aclonica', serif;
+		color:@purple-bright;
+		text-shadow: 0px 1px 1px #372849;
+	}
+
+.navpadding
+	{
+		padding-top:40px;
+	}
+
+
+//------------------------------------------
+//------------------------------------------
+// boxes
+//------------------------------------------
+//------------------------------------------
+.purpleback
+	{
+		background-color:#30233f;
+		padding:10px 10px 10px 10px;
+		border-radius:10px;
+	}	
+.boxh3
+	{
+		padding:10px 50px 10px 50px;
+		border-radius:10px 80px 10px 80px;
+		border-width:5px;
+		border-color:@grey-bright;
+		border-style:solid;
+	}
+
+	
+@import url('svg.less'); // SVG Stylesheet
+@import url('polygons.less'); // Polygons and text boxes from educatiom
+@import url('ellipses.less'); // Ellipses and text boxes from web skills
+@import url('contact.less'); // Ellipses and text boxes from web skills
