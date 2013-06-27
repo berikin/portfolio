@@ -269,12 +269,18 @@ h3 {
   padding: 10px 10px 10px 10px;
   border-radius: 10px;
 }
-.boxh3 {
-  padding: 10px 50px 10px 50px;
+.boximage {
   border-radius: 10px 80px 10px 80px;
   border-width: 5px;
   border-color: #e6e6e6;
   border-style: solid;
+}
+.boxh3 {
+  border-radius: 10px 80px 10px 80px;
+  border-width: 5px;
+  border-color: #e6e6e6;
+  border-style: solid;
+  padding: 10px 50px 10px 50px;
 }
 .boxworks {
   padding: 1px 1px 0px 1px;
@@ -288,7 +294,8 @@ h3 {
 /* CSS Document */
 #polygon1,
 #polygon2,
-#polygon3 {
+#polygon3,
+#polygon4 {
   stroke-linejoin: bevel;
   fill-rule: nonzero;
   stroke: #e6e6e6;
@@ -303,7 +310,9 @@ h3 {
 #polygon2text1,
 #polygon2text2,
 #polygon3text1,
-#polygon3text2 {
+#polygon3text2,
+#polygon4text1,
+#polygon4text2 {
   font-size: 40px;
   font-family: Sans;
   fill: #bcb1ed;
@@ -320,7 +329,9 @@ h3 {
 #polygon2textspan1,
 #polygon2textspan2,
 #polygon3textspan1,
-#polygon3textspan2 {
+#polygon3textspan2,
+#polygon4textspan1,
+#polygon4textspan2 {
   font-family: Aclonica;
   fill: #bcb1ed;
   text-anchor: middle;
@@ -333,11 +344,13 @@ h3 {
 }
 #polygon1textspan1,
 #polygon2textspan1,
-#polygon3textspan1 {
+#polygon3textspan1,
+#polygon4textspan1 {
   font-size: 48px;
 }
 #polygon1textspan2,
-#polygon3textspan2 {
+#polygon3textspan2,
+#polygon4textspan2 {
   font-size: 26px;
 }
 #polygon2textspan2 {
@@ -351,33 +364,67 @@ ELIPSES DE ARTICULO WEB
 /*Estilos de elipses*/
 #galileo3d,
 #berikportfolio,
-#karolportfolio {
-  position: absolute !important;
-  /*Posición absoluta dentro de su caja para poder superponer capas*/
-  top: 280px;
+#karolportfolio,
+#juvecyl {
+  width: 150px;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
-#berikportfolio {
-  margin-left: 170px;
-}
-#karolportfolio {
-  margin-left: 340px;
-}
-#worklayout {
-  position: absolute !important;
-  /*Posición absoluta dentro de su caja para poder superponer capas*/
-  top: 400px;
+#galileo3dlayout,
+#karolportfoliolayout,
+#juvecyllayout {
   display: none;
-  padding: 10px 50px 10px 50px;
+}
+#scrollup {
+  margin-top: 50px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+#scrolldown {
+  margin-top: 10px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+#workflow {
+  width: 200px;
+  margin-top: 10px;
+  height: 400px;
+  overflow: hidden;
+}
+.workimage {
   border-radius: 10px 80px 10px 80px;
   border-width: 5px;
   border-color: #e6e6e6;
   border-style: solid;
+  position: relative;
+  float: left;
+}
+.workinfo {
+  width: 90px;
+  position: relative;
+  float: right;
+}
+.worktext {
+  position: relative;
+  float: left;
+  margin-top: 1em;
+  color: #e6e6e6;
+  text-align: justify;
+}
+#worklayout {
+  position: absolute !important;
+  /*Posición absoluta dentro de su caja para poder superponer capas*/
+  top: 300px;
+  margin-left: 240px;
+  width: 610px;
+  height: 400px;
 }
 @charset "UTF-8";
 /* CSS Document */
 #asir,
 #esi,
-#daw {
+#daw,
+#dam {
   position: absolute !important;
   /*Posición absoluta dentro de su caja para poder superponer capas*/
 
@@ -394,9 +441,15 @@ ELIPSES DE ARTICULO WEB
   margin-top: 310px;
   z-index: 1;
 }
+#dam {
+  z-index: 1;
+  margin-top: 310px;
+  margin-left: 590px;
+}
 #asirtext,
 #esitext,
-#dawtext {
+#dawtext,
+#damtext {
   margin-top: 40px;
   padding: 10px 10px 10px 10px;
   color: #306;
@@ -439,6 +492,12 @@ ELIPSES DE ARTICULO WEB
 
   z-index: 2;
   /*Damos prioridad a esta capa sobre la capa de svg de dam*/
+
+}
+#damtext {
+  margin-top: 400px;
+  z-index: 4;
+  /*Damos prioridad a esta capa sobre la capa de svg de asir*/
 
 }
 @charset "UTF-8";
@@ -569,11 +628,11 @@ label {
 #form_comment {
   margin-top: 20px;
   background-color: #e6e6e6;
-  padding: 10px 50px 10px 50px;
   border-radius: 10px 80px 10px 80px;
   border-width: 5px;
   border-color: #e6e6e6;
   border-style: solid;
+  padding: 10px 50px 10px 50px;
   font-size: 1.1em;
   color: #30233f;
   outline: none;

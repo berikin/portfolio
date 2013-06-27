@@ -206,6 +206,24 @@ function initPolygons()
 		$('#polygon3').css('fill','#d8d6ed');
 		$('#polygon3textspan1,#polygon3textspan2').css('stroke','#30233f');
 		$('#polygon3textspan1,#polygon3textspan2').css('fill','#bcb1ed');
+		});	
+	$('#dam').mouseenter(function() 
+		{
+		$('#damtext').fadeIn(700);
+		$('#polygon4,#polygon4textspan1,#polygon4textspan2').css('transition','fill 700ms, stroke 800ms');
+		$('#polygon4').css('fill','#30233f');
+		$('#polygon4').css('stroke','#d8d6ed');
+		$('#polygon4textspan1,#polygon4textspan2').css('fill','#30233f');
+		$('#polygon4textspan1,#polygon4textspan2').css('stroke','#d8d6ed');
+		});
+	$('#dam').mouseleave(function() 
+		{
+		$('#damtext').fadeOut(700);
+		$('#polygon4,#polygon4textspan1,#polygon4textspan2').css('transition','fill 700ms, stroke 800ms');
+		$('#polygon4').css('stroke','#e6e6e6');
+		$('#polygon4').css('fill','#d8d6ed');
+		$('#polygon4textspan1,#polygon4textspan2').css('stroke','#30233f');
+		$('#polygon4textspan1,#polygon4textspan2').css('fill','#bcb1ed');
 		});		
 	}
 
@@ -330,30 +348,67 @@ function initLinks()
 
 function initWorks()
 	{
-	$('#galileo3d').mouseenter(function() 
+	$('#galileo3d').click(function() 
 		{
-		$('<div id="worklayout"></div>').html('<img src="img/works/galileo3dbig.png" />').appendTo('#centerworks');
-		$('#worklayout').fadeIn(500);
+		$('#galileo3dlayout').fadeOut(500);
+		$('#karolportfoliolayout').fadeOut(500);
+		$('#juvecyllayout').fadeOut(500);
+		$('#berikportfoliolayout').fadeOut(500);
+		$('#galileo3dlayout').delay(505).fadeIn(500);
 		});
-	$('#berikportfolio').mouseenter(function() 
+	$('#juvecyl').click(function() 
 		{
-		$('<div id="worklayout"></div>').html('<img src="img/works/portfoliobig.png" />').appendTo('#centerworks');
-		$('#worklayout').fadeIn(500);
+		$('#galileo3dlayout').fadeOut(500);
+		$('#juvecyllayout').fadeOut(500);
+		$('#karolportfoliolayout').fadeOut(500);
+		$('#berikportfoliolayout').fadeOut(500);
+		$('#juvecyllayout').delay(505).fadeIn(500);
 		});
-	$('#karolportfolio').mouseenter(function() 
+	$('#berikportfolio').click(function() 
 		{
-		$('<div id="worklayout"></div>').html('<img src="img/works/karolbig.png" />').appendTo('#centerworks');
-		$('#worklayout').fadeIn(500);
+		$('#galileo3dlayout').fadeOut(500);
+		$('#juvecyllayout').fadeOut(500);
+		$('#karolportfoliolayout').fadeOut(500);
+		$('#berikportfoliolayout').fadeOut(500);
+		$('#berikportfoliolayout').delay(505).fadeIn(500);
 		});
-	$('#galileo3d,#berikportfolio,#karolportfolio').mouseleave(function() 
+	$('#karolportfolio').click(function() 
 		{
-			$('#worklayout').remove();
-		/*$('#worklayout').fadeOut(500, function() 
-			{
-			$(this).remove();
-    		});*/
+		$('#galileo3dlayout').fadeOut(500);
+		$('#juvecyllayout').fadeOut(500);
+		$('#karolportfoliolayout').fadeOut(500);
+		$('#berikportfoliolayout').fadeOut(500);
+		$('#karolportfoliolayout').delay(505).fadeIn(500);
+		});
+	$('#galileo3d,#berikportfolio,#karolportfolio,#juvecyl').mouseenter(function() 
+		{
+			$(this).animate({'border-color':'#BCB1ED'}, 1000);
+		});
+	$('#galileo3d,#berikportfolio,#karolportfolio,#juvecyl').mouseleave(function() 
+		{
+			$(this).animate({'border-color':'#E6E6E6'}, 1000);
 		});
 	}
+
+function startScrollingDown()
+{
+    // contintually increase scroll position
+    $("#workflow").animate({scrollTop: '-=50'}, startScrollingDown);
+}
+function startScrollingUp()
+{
+    // contintually increase scroll position
+    $("#workflow").animate({scrollTop: '+=50'}, startScrollingUp);
+}
+function stopScrolling()
+{
+    // stop increasing scroll position
+    $("#workflow").stop();
+}
+function initScroll(){
+$('#scrolldown').mousedown(startScrollingDown).mouseup(stopScrolling);
+$('#scrollup').mousedown(startScrollingUp).mouseup(stopScrolling);
+}
 
 
 /*************************************************************************************************************
@@ -371,6 +426,7 @@ $(document).ready(function()
 	initCurtain();
 	initLinks();
 	initWorks();
+	initScroll();
 	$('.blink').blinky(300);
 	$('#form_comment').autosize({append: "\n"});
 	});

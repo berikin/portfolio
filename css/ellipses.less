@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+ELIPSES DE ARTICULO WEB
+*/
+/*Estilos de elipses*/
+#html_xhtml, #php, #django, #css_ajax, #moodle
+	{
+		position:absolute !important; /*Posición absoluta dentro de su caja para poder superponer capas*/
+		width:310px;		
+	}
+#html_xhtml
+	{
+		z-index: 3;
+	}
+#css_ajax
+	{
+		z-index: 3;
+		margin-left: 590px;
+	}
+#django
+	{
+		margin-top: 310px;
+		z-index: 1;
+	}
+#moodle
+	{
+		margin-top: 310px;
+		margin-left: 590px;
+		z-index: 1;
+	}
+#html_xhtmltext, #djangotext, #css_ajaxtext, #moodletext
+	{
+		margin-top:60px;
+		padding:10px 10px 10px 10px;
+		color:@purple-dark;
+		background-color:@purple-bright;
+		font-size:1.5em;
+		text-align:justify;
+		position:absolute; /*Posición absoluta dentro de su caja para poder superponer capas*/
+		width:500px;
+		display:none; /*La capa está oculta hasta que ponemos el ratón en su svg correspondiente*/
+		border-style:solid;
+		border-width:5px 5px 5px;
+		border-color: @grey-bright;
+		border-radius:10px;
+		opacity:0.9; /*Para que se vea que debajo siguen las elipses*/
+	}
+	
+/*Cajas de texto descriptivas*/
+#html_xhtmltext
+	{
+		margin-left:400px; /*Margen para que la capa aparezca donde queremos, ya que al ir absoluta float no funciona (400 de margen + 500 este bloque = 900 del total)*/
+		z-index:4; /*Damos prioridad a esta capa sobre la capa de svg*/
+		margin-top:50px !important;
+	}
+#css_ajaxtext
+	{
+		z-index:4; /*Damos prioridad a esta capa sobre la capa de svg*/
+	}
+#djangotext
+	{
+		margin-top: 340px !important; /*A esta altura queda centrado correctamente con su elipse */
+		margin-left:400px;
+		z-index: 2;
+	}
+#moodletext
+	{
+		margin-top: 349px !important;
+		z-index: 2;
+	}
